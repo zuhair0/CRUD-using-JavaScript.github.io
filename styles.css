@@ -1,0 +1,49 @@
+body{
+    background-color: #B4E4FF;
+    margin-top: 180px;
+}
+h1{
+    text-align: center;
+    color: greenyellow;
+}
+table{
+    border-collapse: collapse;
+    margin: auto;
+    height: auto;
+}
+label{
+    color: greenyellow;
+}
+thead{
+    background-color: whitesmoke;
+}
+table.list{
+    width: 100%;
+}
+input[type=submit]{
+    width: 30%;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 1px solid greenyellow;
+    border-radius: 4px;
+}
+input[type=submit]:hover{
+    border: 2px solid whitesmoke;
+    background-color: greenyellow;
+}
+input[type=text],input[type=number]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+}
+th,td{
+    padding: 12px;
+}
+a{
+    color: blue;
+}
