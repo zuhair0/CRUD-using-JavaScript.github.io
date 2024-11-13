@@ -30,10 +30,13 @@ function insertNewRecord(data) {
 
     var cell4 = newRow.insertCell(3);
     cell4.innerHTML = `
-        <button onclick="onEdit(this)" class="btn edit-btn">Edit</button>
-        <button onclick="onDelete(this)" class="btn delete-btn">Delete</button>
+        <div class="button-container">
+            <button onclick="onEdit(this)" class="btn edit-btn">Edit</button>
+            <button onclick="onDelete(this)" class="btn delete-btn">Delete</button>
+        </div>
     `;
 }
+
 
 function resetForm(){
     document.getElementById("bookname").value="";
