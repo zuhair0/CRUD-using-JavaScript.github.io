@@ -28,13 +28,23 @@ function insertNewRecord(data) {
     var cell3 = newRow.insertCell(2);
     cell3.innerHTML = data.pricename;
 
-    var cell4 = newRow.insertCell(3);
-    cell4.innerHTML = `
-        <div class="button-container">
-            <button onclick="onEdit(this)" class="btn edit-btn">Edit</button>
-            <button onclick="onDelete(this)" class="btn delete-btn">Delete</button>
-        </div>
-    `;
+    // var cell4 = newRow.insertCell(3);
+    // cell4.innerHTML = `
+    //     <div class="button-container">
+    //         <button onclick="onEdit(this)" class="btn edit-btn">Edit</button>
+    //         <button onclick="onDelete(this)" class="btn delete-btn">Delete</button>
+    //     </div>
+    // `;
+
+    cell3 = newRow.insertCell(3);
+cell3.innerHTML = `
+    <a onclick="onEdit(this)" class="btn edit-btn">Edit</a>
+    <a onclick="onDelete(this)" class="btn delete-btn">Delete</a>
+`;
+
+    // cell3=newRow.insertCell(3);
+    // cell3.innerHTML=`<a onclick="onEdit(this)">Edit</a>
+    //                 <a onclick="onDelete(this)">Delete</a>`;
 }
 
 
@@ -46,9 +56,13 @@ function resetForm(){
 }
 function onEdit(td){
     selectedRow=td.parentElement.parentElement;
-    document.getElementById("bookname").value=selectedRow.cells[0].innerHTML;
-    document.getElementById("aurthername").value=selectedRow.cells[1].innerHTML;
-    document.getElementById("pricename").value=selectedRow.cells[2].innerHTML;
+    if (selectedRow && selectedRow.cells.length >= 3) {
+        document.getElementById("bookname").value = selectedRow.cells[0].innerHTML;
+        document.getElementById("aurthername").value = selectedRow.cells[1].innerHTML;
+        document.getElementById("pricename").value = selectedRow.cells[2].innerHTML;
+    } else {
+        console.error("Selected row or its cells are not defined properly.");
+    }
 
 }
 
