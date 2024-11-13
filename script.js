@@ -15,19 +15,26 @@ function readFormData(){
     formData["pricename"]=document.getElementById("pricename").value;
     return formData;
 }
-function insertNewRecord(data){
-    var table=document.getElementById("booklist").getElementsByTagName('tbody')[0];
-    var newRow=table.insertRow(table.length);
-    cell1=newRow.insertCell(0);
-    cell1.innerHTML=data.bookname;
-    cell2=newRow.insertCell(1);
-    cell2.innerHTML=data.aurthername;
-    cell3=newRow.insertCell(2);
-    cell3.innerHTML=data.pricename;
-    cell3=newRow.insertCell(3);
-    cell3.innerHTML=`<a onclick="onEdit(this)">Edit</a>
-                    <a onclick="onDelete(this)">Delete</a>`;
+function insertNewRecord(data) {
+    var table = document.getElementById("booklist").getElementsByTagName('tbody')[0];
+    var newRow = table.insertRow(table.length);
+
+    var cell1 = newRow.insertCell(0);
+    cell1.innerHTML = data.bookname;
+
+    var cell2 = newRow.insertCell(1);
+    cell2.innerHTML = data.aurthername;
+
+    var cell3 = newRow.insertCell(2);
+    cell3.innerHTML = data.pricename;
+
+    var cell4 = newRow.insertCell(3);
+    cell4.innerHTML = `
+        <button onclick="onEdit(this)" class="btn edit-btn">Edit</button>
+        <button onclick="onDelete(this)" class="btn delete-btn">Delete</button>
+    `;
 }
+
 function resetForm(){
     document.getElementById("bookname").value="";
     document.getElementById("aurthername").value="";

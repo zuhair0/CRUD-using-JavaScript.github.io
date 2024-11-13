@@ -8,46 +8,44 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="images/1000_F_138506055_EwDOd9Qd5LmtpmRK18QBoZp5KU1yfiHk.jpg">
 </head>
-<body background="images/edit.jpg">
-    <h1>Book Management System</h1>
-    <table>
-        <tr>
-            <td>
-                <form onsubmit="event.preventDefault();onFormSubmit()">
-                    <div>
-                        <label><strong>Book Name</strong></label>
-                        <input type="text"name="bookname" id="bookname" required>
-                    </div>
-                    <div>
-                        <label><strong>Aurther Name</strong></label>
-                        <input type="text"name="aurthername" id="aurthername" required>
-                    </div>
-                    <div>
-                        <label><strong>Price</strong></label>
-                        <input type="text"name="pricename" id="pricename" required>
-                    </div>
-                    <div class="form-action-buttons" style="text-align: right;">
-                        <input type="submit" value="Submit">
-                    </div>
-                </form>
-            </td>
-            <td>
-                <table class="list" id="booklist">
-                    <thead>
-                        <tr>
-                            <th>Book Name</th>
-                            <th>Auther Name</th>
-                            <th>Price</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+<body>
+    <div class="container">
+  <div class="form-table-container">
+    
+    <form onsubmit="event.preventDefault();onFormSubmit()">
+      <h1>Book Management System</h1>
+      <div>
+        <label><strong>Book Name</strong></label>
+        <input type="text" name="bookname" id="bookname" required>
+      </div>
+      <div>
+        <label><strong>Author Name</strong></label>
+        <input type="text" name="aurthername" id="aurthername" required>
+      </div>
+      <div>
+        <label><strong>Price</strong></label>
+        <input type="text" name="pricename" id="pricename" required>
+      </div>
+      <div class="form-action-buttons">
+        <input type="submit" value="Submit">
+      </div>
+    </form>
 
-                    </tbody>
-                </table>
-            </td>
+    <table class="list" id="booklist">
+      <thead>
+        <tr>
+          <th>Book Name</th>
+          <th>Author Name</th>
+          <th>Price</th>
+          <th>Action</th>
         </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
     </table>
+  </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>
