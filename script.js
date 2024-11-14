@@ -71,13 +71,81 @@ function updateData(formData){
     selectedRow.cells[1].innerHTML=formData.aurthername;
     selectedRow.cells[2].innerHTML=formData.pricename;
 }
-function onDelete(td){
-    if(confirm("Are you sure to Delete?")){
-        row=td.parentElement.parentElement;
+// function onDelete(td){
+//     if(confirm("Are you sure to Delete?")){
+//         row=td.parentElement.parentElement;
+//         document.getElementById("booklist").deleteRow(row.rowIndex);
+//         resetForm();
+//     }
+// }
+function onDelete(td) {
+    // Create the modal elements
+    const modal = document.createElement("div");
+    modal.style.position = "fixed";
+    modal.style.left = "0";
+    modal.style.top = "0";
+    modal.style.width = "100%";
+    modal.style.height = "100%";
+    modal.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    modal.style.display = "flex";
+    modal.style.justifyContent = "center";
+    modal.style.alignItems = "center";
+    modal.style.zIndex = "1000";
+
+    const modalContent = document.createElement("div");
+    modalContent.style.backgroundColor = "white";
+    modalContent.style.padding = "20px";
+    modalContent.style.borderRadius = "8px";
+    modalContent.style.width = "300px";
+    modalContent.style.textAlign = "center";
+    modalContent.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+
+    const message = document.createElement("p");
+    message.innerText = "Are you sure you want to delete?";
+
+    const confirmButton = document.createElement("button");
+    confirmButton.innerText = "Yes";
+    confirmButton.style.margin = "10px";
+    confirmButton.style.padding = "8px 16px";
+    confirmButton.style.border = "none";
+    confirmButton.style.borderRadius = "4px";
+    confirmButton.style.backgroundColor = "#f44336";
+    confirmButton.style.color = "white";
+    confirmButton.style.cursor = "pointer";
+
+    const cancelButton = document.createElement("button");
+    cancelButton.innerText = "No";
+    cancelButton.style.margin = "10px";
+    cancelButton.style.padding = "8px 16px";
+    cancelButton.style.border = "none";
+    cancelButton.style.borderRadius = "4px";
+    cancelButton.style.backgroundColor = "#ccc";
+    cancelButton.style.color = "black";
+    cancelButton.style.cursor = "pointer";
+
+    // Append elements to the modal content
+    modalContent.appendChild(message);
+    modalContent.appendChild(confirmButton);
+    modalContent.appendChild(cancelButton);
+    modal.appendChild(modalContent);
+
+    // Append the modal to the document body
+    document.body.appendChild(modal);
+
+    // Event listener for confirm button
+    confirmButton.onclick = function() {
+        const row = td.parentElement.parentElement;
         document.getElementById("booklist").deleteRow(row.rowIndex);
         resetForm();
-    }
+        document.body.removeChild(modal); // Remove modal after confirming
+    };
+
+    // Event listener for cancel button
+    cancelButton.onclick = function() {
+        document.body.removeChild(modal); // Remove modal without deleting
+    };
 }
+
 function validate(){
     isvalid=true;
 }
